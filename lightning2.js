@@ -1,6 +1,6 @@
 import businesses from "./database.js"
 
-// Resets for answers to lightning exercise 2
+// Provides a list of only manufacturing businesses
 
 const filterMfgBusinesses = () => {
     const mfgBusinesses = businesses.filter(business => {
