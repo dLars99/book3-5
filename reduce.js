@@ -15,7 +15,13 @@ const reduceExercises = () => {
 
     // Second Lightning Exercise: build a sentence
 
-    
+    const words = ["The", "quick", "brown", "fox", "jumped", "over", "the", "lazy", "dog"]
+
+    const sentence = words.reduce(
+        (sentenceFragment, nextWord) => sentenceFragment += `${nextWord} `, ""
+    )
+
+    console.log(sentence)
     
 }
 

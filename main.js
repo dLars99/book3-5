@@ -51,4 +51,4 @@ document
         }
     });
 
-    reduceExercise()
+    reduceExercises()
