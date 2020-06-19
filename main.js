@@ -3,6 +3,7 @@ import displayBusinesses from "./display.js"
 import filterMfgBusinesses from "./lightning2.js"
 import showPurchasingAgents from "./lightning3.js"
 import reduceExercises from "./reduce.js"
+import showBigSpenders from "./bigspenders.js"
 
 const outEl = document.querySelector("#output")
 outEl.innerHTML = "<h1>Active Businesses</h1>"
@@ -13,7 +14,7 @@ displayBusinesses(businesses)
 // Trigger manufacturing business list upon button click
 document.querySelector(".lightning2").addEventListener("click", clickEvent => {
     const mfgBusinesses = filterMfgBusinesses()
-    outEl.innerHTML = "<h1>Manufacturing Businesses"
+    outEl.innerHTML = "<h1>Manufacturing Businesses</h1>"
     displayBusinesses(mfgBusinesses)
 })
 
@@ -24,9 +25,7 @@ document.querySelector(".lightning3").addEventListener("click", clickEvent => {
 })
 
 // Main screen search box
-document
-    .querySelector("#companySearch")
-    .addEventListener("keypress", keyPressEvent => {
+document.querySelector("#companySearch").addEventListener("keypress", keyPressEvent => {
         if (keyPressEvent.charCode === 13) {
             /* WHEN USER PRESSES ENTER, FIND MATCHING BUSINESS */
             const foundBusiness = businesses.find(
@@ -49,6 +48,12 @@ document
                 </section>
             `;
         }
-    });
+});
 
-    reduceExercises()
+reduceExercises()
+
+document.querySelector(".bigSpenders").addEventListener("click", clickEvent => {
+    const bigSpenders = showBigSpenders()
+    outEl.innerHTML = "<h1>BigSpenders</h1>"
+    displayBusinesses(bigSpenders)
+})
