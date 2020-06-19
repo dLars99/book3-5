@@ -2,23 +2,28 @@ import businesses from "./database.js"
 import displayBusinesses from "./display.js"
 import filterMfgBusinesses from "./lightning2.js"
 import showPurchasingAgents from "./lightning3.js"
+import reduceExercises from "./reduce.js"
 
 const outEl = document.querySelector("#output")
 outEl.innerHTML = "<h1>Active Businesses</h1>"
 
+// Invoke main display function
 displayBusinesses(businesses)
 
+// Trigger manufacturing business list upon button click
 document.querySelector(".lightning2").addEventListener("click", clickEvent => {
     const mfgBusinesses = filterMfgBusinesses()
     outEl.innerHTML = "<h1>Manufacturing Businesses"
     displayBusinesses(mfgBusinesses)
 })
 
+// Trigger purchasing agent list upon button click
 document.querySelector(".lightning3").addEventListener("click", clickEvent => {
     showPurchasingAgents(businesses, outEl)
 
 })
 
+// Main screen search box
 document
     .querySelector("#companySearch")
     .addEventListener("keypress", keyPressEvent => {
@@ -45,3 +50,5 @@ document
             `;
         }
     });
+
+    reduceExercises()
