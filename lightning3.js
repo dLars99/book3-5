@@ -19,6 +19,35 @@ const showPurchasingAgents = (businesses, outEl) => {
             <p>${agent.phoneNumber}</p>
             <hr/>`
     });
+
+    document.querySelector("#searchBar").innerHTML = `<input type="text" placeholder = "Search purchasing agents" id="agentSearch" />`
+
+    document
+        .querySelector("#agentSearch")
+        .addEventListener("keypress", keyPressEvent => {
+            if (keyPressEvent.charCode === 13) {
+                /* WHEN USER PRESSES ENTER, FIND MATCHING BUSINESS */
+                const foundAgent = agents.find(
+                    agent =>
+                    agent.companyName.includes(keyPressEvent.target.value)
+                );
+
+                outEl.innerHTML = `
+                <h2>
+                ${foundAgent.fullName}
+                </h2>
+                <section>
+                ${foundAgent.company}
+
+                </section>
+                <section>
+                ${foundAgent.phoneNumber}
+                </section>
+            `;
+            }
+        });
+
+
 }
 
 export default showPurchasingAgents
