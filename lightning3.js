@@ -29,7 +29,7 @@ const showPurchasingAgents = (businesses, outEl) => {
                 /* WHEN USER PRESSES ENTER, FIND MATCHING BUSINESS */
                 const foundAgent = agents.find(
                     agent =>
-                    agent.companyName.includes(keyPressEvent.target.value)
+                    agent.fullName.includes(keyPressEvent.target.value)
                 );
 
                 outEl.innerHTML = `
