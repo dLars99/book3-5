@@ -50,8 +50,10 @@ document.querySelector("#companySearch").addEventListener("keypress", keyPressEv
         }
 });
 
+// Run commands for first reduce lightning exercise
 reduceExercises()
 
+// Trigger Big Spenders list
 document.querySelector(".bigSpenders").addEventListener("click", clickEvent => {
     const bigSpenders = showBigSpenders()
     outEl.innerHTML = "<h1>BigSpenders</h1>"
